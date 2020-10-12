@@ -10,10 +10,7 @@ services:
       # - ./log:/opt/murmur/log
       - ./config:/opt/murmur/config
       - ./data:/opt/murmur/data
-      - type: bind
-        source: /etc/letsencrypt
-        target: /opt/murmur/cert
-        read_only: true
+      - /etc/letsencrypt:/opt/murmur/cert
       - type: bind
         source: /etc/localtime
         target: /etc/localtime
