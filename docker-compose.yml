@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  murmur:
+    image: goofball222/murmur
+    ports:
+      - 64738:64738
+      - 64738:64738/udp
+    volumes:
+      # - /etc/localtime:/etc/localtime:ro
+      - ./etc/letsencrypt:/opt/murmur/cert:ro
+      - ./config:/opt/murmur/config
+      - ./data:/opt/murmur/data
+      # - ./log:/opt/murmur/log
+    environment:
+      - TZ=UTC
